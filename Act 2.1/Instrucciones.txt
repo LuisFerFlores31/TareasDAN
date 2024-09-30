@@ -1,0 +1,50 @@
+Escribe un programa en C++ que trabaje con listas (simplemente) ligadas en equipo de dos o tres personas.
+Un nodo contiene simplemente un entero y el apuntadora al siguiente nodo
+La lista puede contener elementos duplicados
+
+El programa debe funcionar de acuerdo a un menu ciclado que representa las siguientes opciones:
+
+1. Inserta al inicio
+2. Inserta al final
+3. Elimina al inicio
+4. Elimina al final
+5. Imprime
+0. Salir
+
+IMPORTANTE: el menú NO se imprime, solo espera por la entrada del usuario, NO cambiar opciones.
+
+ 
+ 
+ -----------------------------------------------------------------------------
+ Ejemplo de entrada:
+ 3
+2
+88
+1
+23
+3
+2
+56
+2
+48
+4
+1
+56
+1
+89
+4
+3
+1
+29
+2
+73
+5
+0
+
+------------------------------------------------------------------------------
+Ejemplo de salida:
+ERROR
+29
+56
+88
+73
