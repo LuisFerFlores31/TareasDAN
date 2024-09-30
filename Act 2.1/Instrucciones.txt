@@ -13,8 +13,8 @@ El programa debe funcionar de acuerdo a un menu ciclado que representa las sigui
 
 IMPORTANTE: el menú NO se imprime, solo espera por la entrada del usuario, NO cambiar opciones.
 
- 
- 
+ TRABAJA LUIIIS
+
  -----------------------------------------------------------------------------
  Ejemplo de entrada:
  3
