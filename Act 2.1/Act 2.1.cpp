@@ -1,8 +1,17 @@
 #include <iostream>
 using namespace std;
 
-    void insertarInicio(int valor){
+    struct node{
+        int data;
+        node* next;
+    };
+
+    void insertarInicio(node* &pth,int valor){
         cout<<"insertar inicio"<<endl;
+         node *tmp = new node;
+        tmp -> data = valor;
+        tmp -> next = pth;
+        pth = tmp;
     }
     void insertarFinal(int valor){
         cout<<"insertar al final"<<endl;
@@ -16,11 +25,21 @@ using namespace std;
         cout<<"eliminarfinal"<<endl;
     }
 
-    void imprimir(){
+    void imprimir(node* h){
         cout<<"imprimir lista"<<endl;
+         if (h == nullptr) {
+        cout << "La lista esta vacia" << endl;
+    }
+    else {
+        while(h != nullptr) {
+            cout << h -> data << endl;
+            h = h -> next;
+        }
+    }
     }
 
 int main (){
+    node* list = nullptr;
     int opc, valor;
    do {
         cin >> opc;
@@ -28,7 +47,7 @@ int main (){
         case 1: // Insertar al inicio
             cin >> valor;
             cout<<valor<<endl;
-            insertarInicio(valor);
+            insertarInicio(list,valor);
             break;
         case 2: // Insertar al final
             cin >> valor;
@@ -41,7 +60,7 @@ int main (){
             eliminarFinal();
             break;
         case 5: // Imprimir la lista
-            imprimir();
+            imprimir(list);
             break;
         case 0: // Salir
             break;
