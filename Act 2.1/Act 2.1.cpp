@@ -5,13 +5,14 @@ using namespace std;
         int data;
         node* next;
     };
-
+    //Complejidad constante O (1)
     void insertarInicio(node* &pth,int valor){
         node *tmp = new node;
         tmp -> data = valor;
         tmp -> next = pth;
         pth = tmp;
     }
+    //Complejidad lineal O(n)
     void insertarFinal(node* &pth,int valor){
         node* newNode = new node;
         newNode -> next = nullptr;
@@ -28,7 +29,7 @@ using namespace std;
         tmp -> next = newNode;
         }
     }
-
+    //complejidad constante O(1)
     void eliminarInicio(node* &pth){
         if (pth == nullptr)
             cout<<"ERROR"<<endl;
@@ -40,19 +41,18 @@ using namespace std;
             delete tmp;
         }
     }
-
+    //Complejidad lineal O(n)
     void eliminarFinal(node* &pth){
         if (pth == nullptr)
         cout<<"ERROR"<<endl;
 
         else{
             cout<<"eliminarfinal"<<endl;
-            //node* tmp = pth;
-           //pth = pth -> 
+            
 
         }
     }
-
+    //Complejidad lineal O(n)
     void imprimir(node* h){
          if (h == nullptr) {
         cout << "lista esta vacia" << endl;
