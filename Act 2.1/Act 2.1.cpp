@@ -42,13 +42,20 @@ using namespace std;
     }
 
     void eliminarFinal(node* &pth){
-        cout<<"eliminarfinal"<<endl;
+        if (pth == nullptr)
+        cout<<"ERROR"<<endl;
+
+        else{
+            cout<<"eliminarfinal"<<endl;
+            //node* tmp = pth;
+           //pth = pth -> 
+
+        }
     }
 
     void imprimir(node* h){
-        cout<<"imprimir lista"<<endl;
          if (h == nullptr) {
-        cout << "La lista esta vacia" << endl;
+        cout << "lista esta vacia" << endl;
     }
     else {
         while(h != nullptr) {
