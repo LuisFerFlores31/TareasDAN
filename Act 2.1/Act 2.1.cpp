@@ -1,11 +1,6 @@
 #include <iostream>
 using namespace std;
 
-class Listaligada{
-
-    public:
-    Listaligada();
-
     void insertarInicio(int valor){
         cout<<"insertar inicio"<<endl;
     }
@@ -13,12 +8,19 @@ class Listaligada{
         cout<<"insertar al final"<<endl;
     }
 
-    private:
-    int valor;
-};
+    void eliminarInicio(){
+        cout<<"eliminar inicio"<<endl;
+    }
+
+    void eliminarFinal(){
+        cout<<"eliminarfinal"<<endl;
+    }
+
+    void imprimir(){
+        cout<<"imprimir lista"<<endl;
+    }
 
 int main (){
-    ListaLigada lista;
     int opc, valor;
    do {
         cin >> opc;
@@ -26,20 +28,20 @@ int main (){
         case 1: // Insertar al inicio
             cin >> valor;
             cout<<valor<<endl;
-            lista.insertarInicio(valor);
+            insertarInicio(valor);
             break;
         case 2: // Insertar al final
             cin >> valor;
-            lista.insertarFinal(valor);
+            insertarFinal(valor);
             break;
         case 3: // Eliminar al inicio
-            //lista.eliminarInicio();
+            eliminarInicio();
             break;
         case 4: // Eliminar al final
-            //lista.eliminarFinal();
+            eliminarFinal();
             break;
         case 5: // Imprimir la lista
-            //lista.imprimir();
+            imprimir();
             break;
         case 0: // Salir
             break;
