@@ -41,7 +41,7 @@ using namespace std;
         }
     }
 
-    void eliminarFinal(){
+    void eliminarFinal(node* &pth){
         cout<<"eliminarfinal"<<endl;
     }
 
@@ -76,7 +76,7 @@ int main (){
             eliminarInicio(list);
             break;
         case 4: // Eliminar al final
-            eliminarFinal();
+            eliminarFinal(list);
             break;
         case 5: // Imprimir la lista
             imprimir(list);

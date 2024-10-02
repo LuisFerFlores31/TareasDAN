@@ -1,0 +1,59 @@
+Act 2.2 - Verificación de las funcionalidades de una estructura de datos lineal
+
+escribe un programa en C++ que trabaje con Listas Ligadas y efectúe las siguientes operaciones:
+
+reverse:
+
+equals:
+
+concat:
+
+
+Todas las funcionalidades deberán de estar correctamente alineadas y documentadas. Como parte de la documentación deberá incluirse la complejidad de cada una de ellas.
+
+
+input:
+m
+m datos enteros
+n
+n datos enteros
+
+output :
+reversed list 1
+reversed list 2
+reversed list 2 + reversed list 1
+true / false
+
+Ejemplo de entrada:
+5
+65
+32
+45
+78
+99
+4
+45
+14
+256
+36
+
+Ejemplo de salida
+99
+78
+45
+32
+65
+36
+256
+14
+45
+36
+256
+14
+45
+99
+78
+45
+32
+65
+false
