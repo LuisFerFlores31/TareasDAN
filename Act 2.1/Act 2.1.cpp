@@ -13,8 +13,22 @@ using namespace std;
         tmp -> next = pth;
         pth = tmp;
     }
-    void insertarFinal(int valor){
+    void insertarFinal(node* &pth,int valor){
         cout<<"insertar al final"<<endl;
+         node* newNode = new node;
+        newNode -> data = valor;
+        newNode -> next = nullptr;
+
+        if (pth== nullptr)
+        pth = newNode;
+
+        else{
+            node* tmp = pth;    
+            while (tmp -> next != nullptr) {
+                tmp = tmp -> next;
+        }
+        tmp -> next = newNode;
+        }
     }
 
     void eliminarInicio(){
@@ -51,7 +65,7 @@ int main (){
             break;
         case 2: // Insertar al final
             cin >> valor;
-            insertarFinal(valor);
+            insertarFinal(list,valor);
             break;
         case 3: // Eliminar al inicio
             eliminarInicio();
