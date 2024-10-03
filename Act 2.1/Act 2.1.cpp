@@ -1,3 +1,10 @@
+/*Act 2.1 - Implementación de un ADT de estructura de datos lineales
+Luis Fernando Cruz Flores A01738347
+Antonio Mendez Rodriguez A01738269
+Luis Angel Zempoalteca Serrano A01738862
+
+Fecha: 10 de Octubre*/
+
 #include <iostream>
 using namespace std;
 
@@ -62,9 +69,8 @@ using namespace std;
     }
     //Complejidad lineal O(n)
     void imprimir(node* h){
-         if (h == nullptr) {
-        cout << "lista esta vacia" << endl;
-    }
+         if (h == nullptr) return;
+    
     else {
         while(h != nullptr) {
             cout << h -> data << endl;
