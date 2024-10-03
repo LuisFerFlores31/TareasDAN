@@ -50,33 +50,27 @@ using namespace std;
     //Complejidad lineal O(n)
     void eliminarFinal(node* &pth){
         if (pth == nullptr)
-        cout<<"ERROR"<<endl;
-
-        else if (pth -> next == nullptr)
-        {
+            cout << "ERROR" << endl;
+            
+        else if (pth -> next == nullptr){
             delete pth;
             pth = nullptr;
         }
-        
-        else{
+        else {
             node* tmp = pth;
-            while (tmp -> next -> next != nullptr){
+            while (tmp -> next -> next != nullptr) {
                 tmp = tmp -> next;
             }
-            delete tmp ->next;
-            tmp -> next = nullptr;
-        }
+        delete tmp -> next;
+        tmp -> next = nullptr;
     }
+}
     //Complejidad lineal O(n)
     void imprimir(node* h){
-         if (h == nullptr) return;
-    
-    else {
         while(h != nullptr) {
             cout << h -> data << endl;
             h = h -> next;
         }
-    }
     }
 
 int main (){
