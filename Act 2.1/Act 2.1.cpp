@@ -72,6 +72,14 @@ using namespace std;
             h = h -> next;
         }
     }
+    //Complejidad lineal O(n) 
+    void Freeup(node* &pth){
+        while (pth != nullptr){
+            node* tmp = pth;
+            pth = pth -> next;
+            delete tmp;
+        }
+    }
 
 int main (){
     node* list = nullptr;
@@ -97,6 +105,7 @@ int main (){
             imprimir(list);
             break;
         case 0: // Salir
+            Freeup(list);
             break;
         default:
             break;
