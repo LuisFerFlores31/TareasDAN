@@ -1,3 +1,10 @@
+/*Act 2.1 - Implementación de un ADT de estructura de datos lineales
+Luis Fernando Cruz Flores A01738347
+Antonio Mendez Rodriguez A01738269
+Luis Angel Zempoalteca Serrano A01738862
+
+Fecha: 10 de Octubre*/
+
 #include <iostream>
 using namespace std;
 
@@ -30,14 +37,13 @@ using namespace std;
         }
     }
     //complejidad constante O(1)
-    void eliminarInicio(node* &pth){
-        if (pth == nullptr)
+    void eliminarInicio(node* &head){
+        if (head == nullptr)
             cout<<"ERROR"<<endl;
 
         else{
-            cout<<"eliminar inicio"<<endl;
-             node *tmp = pth;
-            pth = pth -> next;
+            node *tmp = head;
+            head = head -> next;
             delete tmp;
         }
     }
@@ -46,17 +52,25 @@ using namespace std;
         if (pth == nullptr)
         cout<<"ERROR"<<endl;
 
+        else if (pth -> next == nullptr)
+        {
+            delete pth;
+            pth = nullptr;
+        }
+        
         else{
-            cout<<"eliminarfinal"<<endl;
-            
-
+            node* tmp = pth;
+            while (tmp -> next -> next != nullptr){
+                tmp = tmp -> next;
+            }
+            delete tmp ->next;
+            tmp -> next = nullptr;
         }
     }
     //Complejidad lineal O(n)
     void imprimir(node* h){
-         if (h == nullptr) {
-        cout << "lista esta vacia" << endl;
-    }
+         if (h == nullptr) return;
+    
     else {
         while(h != nullptr) {
             cout << h -> data << endl;
