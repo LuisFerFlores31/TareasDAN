@@ -84,8 +84,8 @@ void concat(Node** head1, Node** head2) {
     }
     temp->next = *head2;
 }
-
-// Función para clonar una lista ligada.
+//Complejidad temporal: O(n)
+// Función para clonar una lista ligada
 Node* cloneList(Node* head) {
     if (head == nullptr) return nullptr;
 
@@ -107,6 +107,16 @@ Node* cloneList(Node* head) {
 
     return new_head;
 }
+//Complejidad temporal: O(n)
+// Función para liberar la memoria de una lista ligada
+void freeList(Node* head) {
+    Node* temp;
+    while (head != nullptr) {
+        temp = head;
+        head = head->next;
+        delete temp;
+    }
+}
 
 int main() {
     int m, n, value;
@@ -125,16 +135,17 @@ int main() {
         append(&list2, value);
     }
 
-    Node* originalList1 = cloneList(list1); // Se clonan las listas originales antes de modificarlas.
+    // Clonar las listas originales antes de modificarlas
+    Node* originalList1 = cloneList(list1);
     Node* originalList2 = cloneList(list2);
 
-     
-    reverse(&list1);// Invertir 
+    // Invertir ambas listas
+    reverse(&list1);
     reverse(&list2);
-    printList(list1);  //imprimir
-    printList(list2); 
+    printList(list1);
+    printList(list2);
 
-    concat(&list2, &list1);    
+    concat(&list2, &list1);
     printList(list2);  // Reversed list 2 + Reversed list 1
 
     if (equals(originalList1, originalList2)) {
@@ -142,6 +153,10 @@ int main() {
     } else {
         cout << "false" << endl;
     }
+
+    freeList(originalList1);  // Liberamos las listas 
+    freeList(originalList2);
+    freeList(list2);  // list2 ya incluye list1
 
     return 0;
 }
