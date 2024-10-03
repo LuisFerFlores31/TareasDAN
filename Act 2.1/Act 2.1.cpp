@@ -30,14 +30,13 @@ using namespace std;
         }
     }
     //complejidad constante O(1)
-    void eliminarInicio(node* &pth){
-        if (pth == nullptr)
+    void eliminarInicio(node* &head){
+        if (head == nullptr)
             cout<<"ERROR"<<endl;
 
         else{
-            cout<<"eliminar inicio"<<endl;
-             node *tmp = pth;
-            pth = pth -> next;
+            node *tmp = head;
+            head = head -> next;
             delete tmp;
         }
     }
@@ -46,10 +45,19 @@ using namespace std;
         if (pth == nullptr)
         cout<<"ERROR"<<endl;
 
+        else if (pth -> next == nullptr)
+        {
+            delete pth;
+            pth = nullptr;
+        }
+        
         else{
-            cout<<"eliminarfinal"<<endl;
-            
-
+            node* tmp = pth;
+            while (tmp -> next -> next != nullptr){
+                tmp = tmp -> next;
+            }
+            delete tmp ->next;
+            tmp -> next = nullptr;
         }
     }
     //Complejidad lineal O(n)
