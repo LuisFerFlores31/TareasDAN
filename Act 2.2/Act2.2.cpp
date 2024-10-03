@@ -1,3 +1,10 @@
+/*Act 2.2 - Verificación de las funcionalidades de una estructura de datos lineal
+Luis Fernando Cruz Flores A01738347
+Antonio Mendez Rodriguez A01738269
+Luis Angel Zempoalteca Serrano A01738862
+
+Fecha: 10 de Octubre*/
+
 #include <iostream>
 using namespace std;
 
