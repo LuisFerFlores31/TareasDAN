@@ -8,8 +8,13 @@ Fecha: 9 de Octubre*/
 #include <iostream>
 using namespace std;
 
+struct Node {
+    int data;
+    Node* next;
+};
+
 int main (){
-    
+
     return 0;  
     
 };
