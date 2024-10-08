@@ -1,0 +1,26 @@
+Antonio Méndez Rodríguez A01738269
+Fue el encargado de implementar el algoritmo de QuickSort para ordenar los registros de la bitácora por fechas,
+incluyó la definición de la función particion para dividir el conjunto de datos de forma eficiente, comparando 
+tanto meses como días para asegurar el orden correcto. Además, se encargó de gestionar el pivote y los intercambios necesarios, 
+asegurando que el algoritmo cumpliera con la complejidad O(n log n) en el mejor caso, crucial para manejar el gran 
+volumen de datos. También se encargó de la función quickSort, que aplica el algoritmo recursivamente 
+para ordenar los datos de manera óptima.
+
+Luis Fernando Flores Cruz A017388347
+Fue el encargado de diseñar el mapeo de los meses del año, permitiendo que los meses en formato textual 
+como Jan y Dec se convirtieran en valores numéricos adecuados para el ordenamiento. Creó la estructura map<string,
+int> mesAMesNumero, que facilitó la conversión eficiente de meses. De igual manera, desarrolló las funciones auxiliares 
+registroANumeros y fechaNumericaARegistro, esenciales para convertir las fechas de formato string a valores numéricos 
+y viceversa. Esto permitió que el algoritmo de ordenamiento funcionara correctamente al comparar 
+fechas, y garantizó que las fechas se volvieran a representar en su formato textual al escribir los resultados.
+
+Luis Angel Zempoalteca Serrano A01738862
+Fue el encargado de hacer el main, desarrolló el código para leer los registros desde el archivo bitacora.txt, 
+convirtiendo las fechas a su formato numérico y almacenando los datos en una estructura de vector para ser 
+procesados posteriormente. Además, implementó la lógica para la captura de fechas  de inicio y límite por 
+parte del usuario, filtrando los registros dentro del rango definido y asegurando que los 
+resultados se guardaran correctamente en el archivo sorted.txt, también gestionó la interfaz de interacción 
+con el usuario, facilitando la ejecución del proceso completo de manera clara y eficiente.
+
+//Cabe mencionar que para compilar el programa debido a la diversidad de sistemas operativos entre los integrantes del 
+equipo, notamos que puede compilarse como usualmente 'g++ main.cpp' o en su defecto 'g++ -std=c++11 main.cpp'
