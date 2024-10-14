@@ -15,7 +15,7 @@ public:
     friend class BST; // Permitir acceso a la clase BST
 };
 
-// Clase BST para el Árbol Binario de Búsqueda
+// Clase BST para el Binary Search Tree
 class BST {
 private:
     NodeT *root;
@@ -235,3 +235,4 @@ int main() {
 
     return 0;
 }
+
