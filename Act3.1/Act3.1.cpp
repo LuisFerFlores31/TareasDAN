@@ -10,30 +10,54 @@ struct BST{
 
 BST *tree = nullptr;
 
+// Función para crear un nuevo nodo
+BST* crearNodo(int valor) {
+    BST* nuevoNodo = new BST();
+    nuevoNodo->check = valor;
+    nuevoNodo->left = nullptr;
+    nuevoNodo->right = nullptr;
+    return nuevoNodo;
+}
 
+// Función para insertar valores en el árbol
+BST* insertar(BST* tree, int valor) {
+    if (tree == nullptr) {
+        // Si el árbol está vacío, se crea el nodo raíz
+        return crearNodo(valor);
+    }
+
+    // Inserción recursiva en el subárbol izquierdo o derecho
+    if (valor < tree->check) {
+        tree->left = insertar(tree->left, valor);
+    } else if (valor > tree->check) {
+        tree->right = insertar(tree->right, valor);
+    }
+
+    // Retornar el árbol (o subárbol) actualizado
+    return tree;
+}
 
 void preorden(BST*tree){
     if (tree != NULL){
-        cout << tree->check;
-        preorden (tree->left);
-        preorden (tree->right);
+        cout<< tree->check<<" ";
+        preorden(tree->left);
+        preorden(tree->right);
     }
-    cout<<"NULL";
 } 
 
 void inorder(BST*tree){
     if (tree != NULL){
-        preorden (tree->left);
-        cout << tree->check;
-        preorden (tree->right);
+        inorder(tree->left);
+        cout<< tree->check<<" ";
+        inorder(tree->right);
     }
 }
 
 void postorder(BST*tree){
     if (tree != NULL){
-        preorden (tree->left);
-        preorden (tree->right);
-        cout << tree->check;
+        postorder(tree->left);
+        postorder(tree->right);
+        cout<< tree->check<<" ";
     }
 }
 
@@ -64,7 +88,21 @@ void traversal (int opc){
 
 int main(){
     int opc = 0;
+    int n,valor;
+    //inicio
     cout<<"Actividad 3.1"<<endl;
-    cin>>opc;
-    traversal(opc);
+    cin>> n;
+    for (int i = 0; i < n; i++){
+        cin >> valor;
+        tree = insertar(tree,valor);
+    }
+
+    //traversal
+    traversal(1);
+    cout<<endl;
+    traversal(2);
+    cout<<endl;
+    traversal(3);
+    cout<<endl;
+    traversal(4);
 };
