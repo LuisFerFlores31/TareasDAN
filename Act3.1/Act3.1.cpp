@@ -37,6 +37,53 @@ BST* insertar(BST* tree, int valor) {
     return tree;
 }
 
+//Funcion para borrar nodos
+BST* minValorNodo(BST* nodo) {
+    BST* actual = nodo;
+
+    // Recorrer hasta el nodo más a la izquierda
+    while (actual && actual->left != nullptr) {
+        actual = actual->left;
+    }
+
+    return actual;
+}
+
+// Función para eliminar un nodo del árbol
+BST* eliminar(BST* root, int valor) {
+    if (root == nullptr) return root;
+
+    // Buscar el nodo a eliminar
+    if (valor < root->check) {
+        root->left = eliminar(root->left, valor);
+    } else if (valor > root->check) {
+        root->right = eliminar(root->right, valor);
+    } else {
+        // Caso 1: El nodo no tiene hijos o tiene un hijo
+        if (root->left == nullptr) {
+            BST* temp = root->right;
+            delete root;
+            return temp;
+        } else if (root->right == nullptr) {
+            BST* temp = root->left;
+            delete root;
+            return temp;
+        }
+
+        // Caso 2: El nodo tiene dos hijos, se busca el sucesor en orden
+        BST* temp = minValorNodo(root->right);
+
+        // Reemplazar el valor del nodo actual por el sucesor
+        root->check = temp->check;
+
+        // Eliminar el sucesor en orden
+        root->right = eliminar(root->right, temp->check);
+    }
+
+    return root;
+}
+
+
 void preorden(BST*tree){
     if (tree != NULL){
         cout<< tree->check<<" ";
@@ -87,8 +134,7 @@ void traversal (int opc){
 }
 
 int main(){
-    int opc = 0;
-    int n,valor;
+    int n,m,valor;
     //inicio
     cout<<"Actividad 3.1"<<endl;
     cin>> n;
@@ -96,8 +142,14 @@ int main(){
         cin >> valor;
         tree = insertar(tree,valor);
     }
+    //Eliminar
+    cin>> m;
+    for (int i = 0; i < m; i++){
+        cin >> valor;
+        tree = eliminar(tree,valor);
+    }
 
-    //traversal
+    //traversal pruebas
     traversal(1);
     cout<<endl;
     traversal(2);
