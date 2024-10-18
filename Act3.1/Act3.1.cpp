@@ -108,35 +108,59 @@ void postorder(BST*tree){
     }
 }
 
-void LevBLev (BST* tree){
-    cout<<"Level by Level"<<endl;
+void LevBLev(BST* tree) {
+    if (tree != NULL) {
+
+        vector<BST*> levels;  // Vector para almacenar los nodos por niveles
+        levels.push_back(tree);  
+        int i = 0; 
+        while (i < levels.size()) {
+            BST* actual = levels[i];
+            i++;  
+            cout << actual->check << " "; 
+
+            // Agrega a los hijos left y right
+            if (actual->left != nullptr) {
+            levels.push_back(actual->left);
+            }
+            if (actual->right != nullptr) {
+            levels.push_back(actual->right);
+            }
+        }
+        
+    }
 }
     
 
 void traversal (int opc){
     switch (opc){
-        case 1: //Preorder
+        case 1:
         preorden(tree);
         break;
 
-        case 2://inorder
+        case 2:
         inorder(tree);
         break;
 
-        case 3://postorder
+        case 3:
         postorder(tree);
         break;
 
-        case 4://Level by Level
+        case 4:
         LevBLev(tree);
         break;
     }
 }
 
+BST* ancestros(BST* tree, int valor){
+    if (tree != NULL){
+        cout<<"Ancestros";
+    }
+}
+
 int main(){
-    int n,m,valor;
+    int n,m,q,valor;
     //inicio
-    cout<<"Actividad 3.1"<<endl;
     cin>> n;
     for (int i = 0; i < n; i++){
         cin >> valor;
@@ -157,4 +181,14 @@ int main(){
     traversal(3);
     cout<<endl;
     traversal(4);
+
+    //El misterioso 3
+
+    //Ancestros
+    cin>> q;
+    for (int i = 0; i < q; i++){
+        cin >> valor;
+        tree = ancestros(tree,valor);
+    }
+
 };

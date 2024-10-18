@@ -1,13 +1,14 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-struct BST {
+struct BST{
     int check;
-    BST* right;
-    BST* left;
+    BST * right;
+    BST * left;
 };
 
-BST* tree = nullptr;
+BST *tree = nullptr;
 
 // Función para crear un nuevo nodo
 BST* crearNodo(int valor) {
@@ -21,19 +22,22 @@ BST* crearNodo(int valor) {
 // Función para insertar valores en el árbol
 BST* insertar(BST* tree, int valor) {
     if (tree == nullptr) {
+        // Si el árbol está vacío, se crea el nodo raíz
         return crearNodo(valor);
     }
 
+    // Inserción recursiva en el subárbol izquierdo o derecho
     if (valor < tree->check) {
         tree->left = insertar(tree->left, valor);
     } else if (valor > tree->check) {
         tree->right = insertar(tree->right, valor);
     }
 
+    // Retornar el árbol (o subárbol) actualizado
     return tree;
 }
 
-// Función para encontrar el sucesor en orden (el más pequeño en el subárbol derecho)
+//Funcion para borrar nodos
 BST* minValorNodo(BST* nodo) {
     BST* actual = nodo;
 
@@ -46,14 +50,14 @@ BST* minValorNodo(BST* nodo) {
 }
 
 // Función para eliminar un nodo del árbol
-BST* eliminarNodo(BST* root, int valor) {
+BST* eliminar(BST* root, int valor) {
     if (root == nullptr) return root;
 
     // Buscar el nodo a eliminar
     if (valor < root->check) {
-        root->left = eliminarNodo(root->left, valor);
+        root->left = eliminar(root->left, valor);
     } else if (valor > root->check) {
-        root->right = eliminarNodo(root->right, valor);
+        root->right = eliminar(root->right, valor);
     } else {
         // Caso 1: El nodo no tiene hijos o tiene un hijo
         if (root->left == nullptr) {
@@ -73,110 +77,143 @@ BST* eliminarNodo(BST* root, int valor) {
         root->check = temp->check;
 
         // Eliminar el sucesor en orden
-        root->right = eliminarNodo(root->right, temp->check);
+        root->right = eliminar(root->right, temp->check);
     }
 
     return root;
 }
 
-// Recorridos del árbol
-void preorden(BST* tree) {
-    if (tree != NULL) {
-        cout << tree->check << " ";
+
+void preorden(BST*tree){
+    if (tree != NULL){
+        cout<< tree->check<<" ";
         preorden(tree->left);
         preorden(tree->right);
     }
-}
+} 
 
-void inorder(BST* tree) {
-    if (tree != NULL) {
+void inorder(BST*tree){
+    if (tree != NULL){
         inorder(tree->left);
-        cout << tree->check << " ";
+        cout<< tree->check<<" ";
         inorder(tree->right);
     }
 }
 
-void postorder(BST* tree) {
-    if (tree != NULL) {
+void postorder(BST*tree){
+    if (tree != NULL){
         postorder(tree->left);
         postorder(tree->right);
-        cout << tree->check << " ";
+        cout<< tree->check<<" ";
     }
 }
 
 void LevBLev(BST* tree) {
-    cout << "Level by Level (función no implementada aún)" << endl;
+    if (tree != NULL) {
+
+        vector<BST*> levels;  // Vector para almacenar los nodos por niveles
+        levels.push_back(tree);  
+        int i = 0; 
+        while (i < levels.size()) {
+            BST* actual = levels[i];
+            i++;  
+            cout << actual->check << " "; 
+
+            // Agrega a los hijos left y right
+            if (actual->left != nullptr) {
+            levels.push_back(actual->left);
+            }
+            if (actual->right != nullptr) {
+            levels.push_back(actual->right);
+            }
+        }
+        
+    }
 }
+    
 
-void traversal(int opc) {
-    switch (opc) {
-        case 1: // Preorden
-            preorden(tree);
-            break;
+void traversal (int opc){
+    switch (opc){
+        case 1:
+        preorden(tree);
+        break;
 
-        case 2: // Inorden
-            inorder(tree);
-            break;
+        case 2:
+        inorder(tree);
+        break;
 
-        case 3: // Postorden
-            postorder(tree);
-            break;
+        case 3:
+        postorder(tree);
+        break;
 
-        case 4: // Nivel por Nivel
-            LevBLev(tree);
-            break;
-
-        default:
-            cout << "Opción inválida" << endl;
+        case 4:
+        LevBLev(tree);
+        break;
     }
 }
 
-int main() {
-    int n, m, valor;
+BST* ancestros(BST* tree, int valor) {
+    if (tree == nullptr) {
+        return nullptr;  // El nodo no existe
+    }
 
-    // Inserción de nodos
-    cout << "Actividad 3.1: Ingresar número de nodos del árbol" << endl;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cout << "Ingresa el valor del nodo " << (i + 1) << ": ";
+    // Si el nodo es el que buscamos, terminamos y lo retornamos
+    if (tree->check == valor) {
+        return tree;
+    }
+
+    // Si el nodo está en el subárbol izquierdo
+    if (valor < tree->check) {
+        BST* leftResult = ancestros(tree->left, valor);
+        if (leftResult != nullptr) {
+            cout << tree->check << " ";  // Imprimir el ancestro
+            return leftResult;
+        }
+    }
+    // Si el nodo está en el subárbol derecho
+    else {
+        BST* rightResult = ancestros(tree->right, valor);
+        if (rightResult != nullptr) {
+            cout << tree->check << " ";  // Imprimir el ancestro
+            return rightResult;
+        }
+    }
+
+    return nullptr;  // Si no encontramos el valor
+}
+
+
+int main(){
+    int n,m,q,valor;
+    //inicio
+    cin>> n;
+    for (int i = 0; i < n; i++){
         cin >> valor;
-        tree = insertar(tree, valor);
+        tree = insertar(tree,valor);
     }
-
-    // Mostrar los recorridos del árbol antes de eliminar nodos
-    cout << "Recorrido Preorden: ";
-    traversal(1);
-    cout << endl;
-
-    cout << "Recorrido Inorden: ";
-    traversal(2);
-    cout << endl;
-
-    cout << "Recorrido Postorden: ";
-    traversal(3);
-    cout << endl;
-
-    // Eliminación de nodos
-    cout << "Ingresa el número de nodos a eliminar: ";
-    cin >> m;
-    for (int i = 0; i < m; i++) {
-        cout << "Ingresa el valor del nodo a eliminar: ";
+    //Eliminar
+    cin>> m;
+    for (int i = 0; i < m; i++){
         cin >> valor;
-        tree = eliminarNodo(tree, valor);
+        tree = eliminar(tree,valor);
     }
 
-    // Mostrar los recorridos del árbol después de eliminar nodos
-    cout << "Recorrido Preorden después de eliminar: ";
+    //traversal pruebas
     traversal(1);
-    cout << endl;
-
-    cout << "Recorrido Inorden después de eliminar: ";
+    cout<<endl;
     traversal(2);
-    cout << endl;
-
-    cout << "Recorrido Postorden después de eliminar: ";
+    cout<<endl;
     traversal(3);
-    cout << endl;
+    cout<<endl;
+    traversal(4);
+    
+    //El misterioso 3
 
-    return 0;
-}
+    //Ancestros
+    cin>> q;
+    for (int i = 0; i < q; i++){
+        cin >> valor;
+        tree = ancestros(tree,valor);
+    }
+
+};
