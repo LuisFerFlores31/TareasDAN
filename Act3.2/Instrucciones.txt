@@ -1,0 +1,79 @@
+escribe una clase en C++ llamada "priority_queue" que tenga las siguientes operaciones utilizando un heap y simulando una fila priorizada de enteros con prioridad de valor mayor.
+
+Push (Agregue un dato a la fila priorizada): 
+    Entrada: Un entero, el cual se desea agregar a la fila priorizada
+    precondicion: n es un entero
+    postcondicion: La fila priorizada contiene un nuevo dato.
+
+Pop (Saca de la fila priorizada el dato que tiene mayor prioridad):
+    precondicion: Que la fila priorizada contenga al menos 1 dato.
+    postcondicion: La fila priorizada queda sin el dato con mayor prioridad
+
+Top (Regresa el valor del dato que esta con mayor prioridad en la fila priorizada.):
+    Salida: El dato que tiene mayor prioridad dentro de la Fila priorizada
+    precondicion: Que la fila priorizada contenga al menos 1 dato.
+
+Empty (Regresa un valor boleando diciendo si la fila priorizada esta vacía o tiene datos.):
+    Salida: Un valor boleano que diga si la fila priorizada esta vacía o tiene datos.
+
+Size(Regresa la cantidad de datos que tiene la fila priorizada):
+    Salida: Un valor entero que represena la cantidad de datos de la fila priorizada
+
+
+entrada:
+interacción de acuerdo al siguiente menu. (el menu NO se imprime)
+
+1. push
+2. pop
+3. print
+4. top
+5. is_empty
+6. size
+0. exit
+
+salida:
+el resultado de la interacción
+
+ejemplo de ejecución:
+
+input:
+
+5
+1
+51
+1
+37
+5
+1
+64
+1
+32
+1
+16
+4
+1
+96
+2
+2
+3
+0
+
+output:
+
+true
+false
+64
+96
+64
+51 37 16 32
+
+ 
+
+(salida con detalles)
+
+true<no hay espacio aqui><salto de linea>
+false<no hay espacio aqui><salto de linea>
+64<no hay espacio aqui><salto de linea>
+96<no hay espacio aqui><salto de linea>
+64<no hay espacio aqui><salto de linea>
+51<espacio>37<espacio>16<espacio>32<espacio><salto de linea>
