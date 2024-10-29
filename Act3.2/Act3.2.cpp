@@ -15,6 +15,13 @@ void pop(vector<int> arbol){
     arbol.pop_back(); //No se si se pueda usar esta funcion alch
 }
 
+void test(vector<int> arbol){
+    for (int i; i<5; i++){
+        cout<<arbol[i]<<" ";
+    }
+    cout<<"Fin"<<endl;
+}
+
 bool isempty(vector<int>arbol){
     if (arbol.size() == 0){
                 return true;
@@ -23,7 +30,7 @@ bool isempty(vector<int>arbol){
 }
 
 int main(){
-    int root, der, izq, opc, val;
+    int root, der, izq, opc, val,count;
     vector<int> arbol;
 
     do {
@@ -37,8 +44,9 @@ int main(){
             break;
         case 2:
             cout<<"pop"<<endl;
-            pop(arbol);
-            heapsoting(arbol, root, der,izq);
+            test(arbol);
+            //pop(arbol);
+            //heapsoting(arbol, root, der,izq);
             break;
         case 3:
             cout<<"print"<<endl;
@@ -48,15 +56,15 @@ int main(){
             break;
         case 4:
             cout<<"top"<<endl;
-            cout<<arbol[0];
+            cout<<arbol[0]<<endl;
             break;
         case 5 :
             cout<<"is empty"<<endl;
-            isempty(arbol);
+            cout<<isempty(arbol)<<endl;
             break;
         case 6:
             cout<<"size"<<endl;
-            cout<<arbol.size();
+            cout<<arbol.size()<<endl;
             break;
         
         default:
