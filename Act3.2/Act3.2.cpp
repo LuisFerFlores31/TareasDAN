@@ -7,6 +7,14 @@ void heapsoting(vector<int>arbol,int root,int der, int izq){
     
 }
 
+void pop(vector<int> arbol){
+    if (arbol.size() == 0){
+        cout<<"El arbol esta vacio";
+    }
+    arbol[0] = arbol.back();
+    arbol.pop_back(); //No se si se pueda usar esta funcion alch
+}
+
 bool isempty(vector<int>arbol){
     if (arbol.size() == 0){
                 return true;
@@ -23,20 +31,19 @@ int main(){
         switch (opc)
         {
         case 1:
-            cout<<"push"<<endl;
             cin>>val;
-            //meter valor al arbol
+            arbol.push_back(val);
             heapsoting(arbol, root, der,izq);
             break;
         case 2:
             cout<<"pop"<<endl;
-            //remover valor del arbol
+            pop(arbol);
             heapsoting(arbol, root, der,izq);
             break;
         case 3:
             cout<<"print"<<endl;
             for (int i; i< arbol.size(); i++){
-                cout<<arbol[i];
+                cout<<arbol[i]<<" ";
             }
             break;
         case 4:
@@ -49,6 +56,7 @@ int main(){
             break;
         case 6:
             cout<<"size"<<endl;
+            cout<<arbol.size();
             break;
         
         default:
