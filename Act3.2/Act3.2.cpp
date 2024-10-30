@@ -29,6 +29,7 @@ void pop(vector<int> &arbol) {
     }
 
     // Mover el último elemento a la raíz y eliminar el último elemento
+    cout<<arbol[0]<<endl;
     arbol[0] = arbol.back();
     arbol.pop_back();
 
@@ -43,8 +44,13 @@ void test(const vector<int> &arbol) {
     cout << "Fin" << endl;
 }
 
-bool isempty(const vector<int> &arbol) {
-    return arbol.size() == 0;
+void isempty(const vector<int> &arbol) {
+    if (arbol.size() == 0){
+        cout<<"true"<<endl;
+    }
+    else{
+        cout<<"flase"<<endl;
+    }
 }
 
 int main(){
@@ -55,7 +61,7 @@ int main(){
         cin>>opc;
         switch (opc)
         {
-        case 1:
+        case 1: //push, mete un valor al arbol y lo ordena con heapify
             cin>>val;
             arbol.push_back(val);
             //Heapify 
@@ -63,27 +69,22 @@ int main(){
                 heapify(arbol, arbol.size(), i);
             }
             break;
-        case 2:
-            cout<<"pop"<<endl;
+        case 2: //pop, quita el valor de la raiz y la re-ordena con heapify
             pop(arbol);
             //heapsoting(arbol, root, der,izq);
             break;
-        case 3:
-            cout<<"print"<<endl;
+        case 3: //print, imprime los valores del arbol
             for (int i = 0; i< arbol.size(); i++){
                 cout<<arbol[i]<<" ";
             }
             break;
-        case 4:
-            cout<<"top"<<endl;
+        case 4: //top, da el valor de la raiz
             cout<<arbol[0]<<endl;
             break;
         case 5 :
-            cout<<"is empty"<<endl;
-            cout<<isempty(arbol)<<endl;
+            isempty(arbol);
             break;
-        case 6:
-            cout<<"size"<<endl;
+        case 6: //Size, da el tamaño del arbol 
             cout<<arbol.size()<<endl;
             break;
         
