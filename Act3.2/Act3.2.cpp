@@ -23,10 +23,6 @@ void heapify(vector<int> &arbol, int n, int i) {
 }
 
 void pop(vector<int> &arbol) {
-    if (arbol.size() == 0) {
-        cout << "El árbol está vacío" << endl;
-        return;
-    }
 
     // Mover el último elemento a la raíz y eliminar el último elemento
     cout<<arbol[0]<<endl;
@@ -77,6 +73,7 @@ int main(){
             for (int i = 0; i< arbol.size(); i++){
                 cout<<arbol[i]<<" ";
             }
+            cout<<endl;
             break;
         case 4: //top, da el valor de la raiz
             cout<<arbol[0]<<endl;
