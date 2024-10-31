@@ -65,7 +65,7 @@ public:
         }
     }
     //Complejidad O(1)
-    void isempty() {
+    void empty() {
         if (heap.size() == 0){
             cout<<"true"<<endl;
         }
@@ -100,7 +100,7 @@ int main() {
             cout << maxHeap.top() << endl;
             break;
         case 5: // Is Empty
-            maxHeap.isempty();
+            maxHeap.empty();
             break;
         case 6: // Size
             cout << maxHeap.size() << endl;
