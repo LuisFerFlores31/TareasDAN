@@ -1,7 +1,7 @@
 /*
 Equipo:
 Antonio Méndez Rodríguez A01738269
-Luis Fernando Flores Cruz A017388347
+Luis Fernando Cruz Flores A017388347
 Luis Angel Zempoalteca Serrano A01738862
 */
 
@@ -9,7 +9,7 @@ Luis Angel Zempoalteca Serrano A01738862
 #include <vector>
 using namespace std;
 
-class MaxHeap {
+class priority_queue {
 private:
     vector<int> heap;
     //Complejidad O(log n)
@@ -80,7 +80,7 @@ public:
 };
 
 int main() {
-    MaxHeap maxHeap;
+    priority_queue maxHeap;
     int opc, val;
 
     do {
